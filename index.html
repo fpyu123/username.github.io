@@ -15,69 +15,79 @@
         /* 页面整体样式 */
         body {
             min-height: 100vh;
-            /* 背景图设置 - 使用本地图片 */
             background-image: url('2026-03-08_20-04-25.jpg');
-            /* 背景图铺满、居中、不重复 */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            /* 弹性布局让内容居中 */
             display: flex;
             justify-content: center;
             align-items: center;
-            /* 背景图叠加半透明遮罩，提升文字可读性 */
             position: relative;
-            font-family: "Microsoft YaHei", sans-serif;
+            font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
+            background-color: #000; /* 防止图片未加载时全白 */
         }
-
-        /* 背景遮罩层 - 已移除以显示原图 */
 
         /* 链接容器 */
         .link-container {
             position: relative;
             z-index: 2;
             text-align: center;
-            background-color: rgba(255, 255, 255, 0.1); /* 半透明白色背景 */
-            padding: 10px 20px; /* 内边距 */
-            border-radius: 15px; /* 圆角 */
-            backdrop-filter: blur(10px); /* 毛玻璃效果 */
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* 阴影效果 */
+            background-color: rgba(0, 0, 0, 0.4); /* 调深了背景遮罩，让金字更明显 */
+            padding: 20px 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(184, 134, 11, 0.3); /* 增加淡淡的金边框 */
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* 链接样式 */
+        /* 核心修改：链接样式 */
         .link-item {
-            display: block; /* 每行一个链接 */
-            font-size: 24px; /* 字体大小 */
-            color: white; /* 最深金色字体 */
-            background: linear-gradient(45deg, #b8860b, #daa520, #ffd700, #b8860b, #daa520);
-            background-clip: text;
+            display: block;
+            font-size: 26px; /* 略微加大 */
+            font-weight: bold; /* 加粗是清晰的关键 */
+            text-decoration: none;
+            margin: 25px 0;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+
+            /* 使用更深的重金属金渐变 */
+            background: linear-gradient(to bottom, #cf9e2e 0%, #8b6508 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 1px rgba(0, 0, 0, 0.8);
-            text-decoration: none; /* 去掉下划线 */
-            margin: 20px 0; /* 行间距 */
-            padding: 10px 20px;
-            transition: all 0.3s ease; /* 过渡动画 */
+
+            /* 关键：多重阴影确保清晰度 */
+            /* 1像素的深色描边效果 + 下方投影 */
+            text-shadow: 
+                1px 1px 0px rgba(0,0,0,0.8), 
+                2px 2px 4px rgba(0,0,0,0.5);
         }
 
         /* 鼠标悬停效果 */
         .link-item:hover {
-            color: #ffd700; /* 悬停变金色 */
-            transform: scale(1.1); /* 轻微放大 */
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* 发光效果 */
+            transform: scale(1.05);
+            /* 悬停时稍微变亮，增加交互感 */
+            background: linear-gradient(to bottom, #ffd700 0%, #b8860b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
         }
 
-        /* 响应式适配 - 手机端调整字体 */
+        /* 响应式适配 */
         @media (max-width: 768px) {
             .link-item {
-                font-size: 18px;
+                font-size: 20px;
+                margin: 15px 0;
+            }
+            .link-container {
+                padding: 15px 25px;
+                width: 90%;
             }
         }
     </style>
 </head>
 <body>
     <div class="link-container">
-        <!-- 替换成你的链接和文字 -->
         <a href="https://github.com" class="link-item">皇冠足球：点击联系客服</a>
         <a href="https://www.baidu.com" class="link-item">香港六合彩：点击联系客服</a>
         <a href="https://www.bilibili.com" class="link-item">澳门六合彩：点击联系客服</a>
@@ -86,4 +96,3 @@
     </div>
 </body>
 </html>
-
