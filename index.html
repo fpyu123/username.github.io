@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的导航页面</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 页面整体样式 */
+        body {
+            min-height: 100vh;
+            /* 背景图设置 - 使用本地图片 */
+            background-image: url('background.jpg');
+            /* 背景图铺满、居中、不重复 */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* 弹性布局让内容居中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 背景图叠加半透明遮罩，提升文字可读性 */
+            position: relative;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* 背景遮罩层 */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 黑色半透明，可调整透明度 */
+            z-index: 1;
+        }
+
+        /* 链接容器 */
+        .link-container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        /* 链接样式 */
+        .link-item {
+            display: block; /* 每行一个链接 */
+            font-size: 24px; /* 字体大小 */
+            color: white; /* 字体颜色 */
+            text-decoration: none; /* 去掉下划线 */
+            margin: 20px 0; /* 行间距 */
+            padding: 10px 20px;
+            transition: all 0.3s ease; /* 过渡动画 */
+        }
+
+        /* 鼠标悬停效果 */
+        .link-item:hover {
+            color: #ffd700; /* 悬停变金色 */
+            transform: scale(1.1); /* 轻微放大 */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* 发光效果 */
+        }
+
+        /* 响应式适配 - 手机端调整字体 */
+        @media (max-width: 768px) {
+            .link-item {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="link-container">
+        <!-- 替换成你的链接和文字 -->
+        <a href="https://github.com" class="link-item">GitHub 主页</a>
+        <a href="https://www.baidu.com" class="link-item">百度搜索</a>
+        <a href="https://www.bilibili.com" class="link-item">哔哩哔哩</a>
+        <a href="#" class="link-item">自定义链接 4</a>
+    </div>
+</body>
+</html>
